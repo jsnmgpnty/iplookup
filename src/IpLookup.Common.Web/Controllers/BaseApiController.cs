@@ -1,8 +1,6 @@
-﻿using IpLookup.Common.Extensions;
-using IpLookup.Models;
+﻿using IpLookup.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Linq;
 
 namespace IpLookup.Common.Web.Controllers
 {
@@ -21,20 +19,14 @@ namespace IpLookup.Common.Web.Controllers
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult GetErrorResponse(Exception exception, string message)
         {
-            var controllerName = ControllerContext.RouteData.Values["controller"].ToString();
-            var actionName = ControllerContext.RouteData.Values["action"].ToString();
-            _logHelper.LogError(exception, $"{controllerName}.{actionName} - Error calling {actionName} - {message}");
-
+            LogError(message, exception);
             return BadRequest(message);
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult GetErrorResponse(string message)
         {
-            var controllerName = ControllerContext.RouteData.Values["controller"].ToString();
-            var actionName = ControllerContext.RouteData.Values["action"].ToString();
-            _logHelper.LogError($"{controllerName}.{actionName} - Error calling {actionName} - {message}");
-
+            LogError(message);
             return BadRequest(message);
         }
 
@@ -49,21 +41,11 @@ namespace IpLookup.Common.Web.Controllers
             });
         }
 
-        [ApiExplorerSettings(IgnoreApi = true)]
-        public IActionResult HandleResponse<T, TE>(EntityMetadata<T, TE> result, string defaultError) where TE : struct
+        public void LogError(string message, Exception exception = null)
         {
-            if (result == null)
-            {
-                return GetErrorResponse(defaultError);
-            }
-
-            if (result.Errors?.Count > 0 || result.Data == null)
-            {
-                var error = result.Errors.First();
-                return GetErrorResponse(error.ErrorType.ToEnumString());
-            }
-
-            return GetSuccessResponse(true, null, result.Data);
+            var controllerName = ControllerContext.RouteData.Values["controller"].ToString();
+            var actionName = ControllerContext.RouteData.Values["action"].ToString();
+            _logHelper.LogError(exception, $"{controllerName}.{actionName} - Error calling {actionName} - {message}");
         }
     }
 }

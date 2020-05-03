@@ -61,10 +61,13 @@ namespace IpProcessorApi
 
             // Register services
             services.AddSingleton<IViewDnsService, ViewDnsService>();
+            services.AddSingleton<IRdapService, RdapService>();
 
             // Register http services
             services.AddSingleton<IHttpViewDnsService, HttpViewDnsService>();
             services.AddSingleton(typeof(HttpViewDnsServiceSettings), Configuration.GetSection("Services:ViewDns").Get<HttpViewDnsServiceSettings>());
+            services.AddSingleton<IHttpRdapService, HttpRdapService>();
+            services.AddSingleton(typeof(HttpRdapServiceSettings), Configuration.GetSection("Services:Rdap").Get<HttpRdapServiceSettings>());
 
             // Add swagger doc
             services.AddSwaggerDocumentation(ServiceName);

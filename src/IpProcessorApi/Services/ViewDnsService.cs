@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using IpLookup.Common;
 using IpLookup.Models;
 using IpProcessorApi.Http.Responses;
 using IpProcessorApi.Http.Services;
@@ -11,68 +10,65 @@ namespace IpProcessorApi.Services
     public class ViewDnsService : IViewDnsService
     {
         private readonly IHttpViewDnsService _httpViewDnsService;
-        private readonly ILogHelper _logHelper;
 
-        public ViewDnsService(IHttpViewDnsService httpViewDnsService, ILogHelper logHelper)
+        public ViewDnsService(IHttpViewDnsService httpViewDnsService)
         {
             _httpViewDnsService = httpViewDnsService;
-            _logHelper = logHelper;
         }
 
-        public async Task<EntityMetadata<ViewDnsGeoIpResponseLocation, ViewDnsErrors>> GetGeoIp(string ip)
+        public async Task<EntityMetadata<ViewDnsGeoIpResponseLocation, IpProcessorErrors>> GetGeoIp(string ip)
         {
             var response = await _httpViewDnsService.GetGeoIp(ip);
             if (response?.Response == null)
             {
-                return GetEntityMetadataResponse<ViewDnsGeoIpResponseLocation>(null, ViewDnsErrors.InvalidResponse);
+                return GetEntityMetadataResponse<ViewDnsGeoIpResponseLocation>(null, IpProcessorErrors.InvalidResponse);
             }
 
             return GetEntityMetadataResponse(response.Response);
         }
 
-        public async Task<EntityMetadata<ViewDnsPingResponseReplies, ViewDnsErrors>> GetPing(string ip)
+        public async Task<EntityMetadata<ViewDnsPingResponseReplies, IpProcessorErrors>> GetPing(string ip)
         {
             var response = await _httpViewDnsService.GetPing(ip);
             if (response?.Response == null)
             {
-                return GetEntityMetadataResponse<ViewDnsPingResponseReplies>(null, ViewDnsErrors.InvalidResponse);
+                return GetEntityMetadataResponse<ViewDnsPingResponseReplies>(null, IpProcessorErrors.InvalidResponse);
             }
 
             return GetEntityMetadataResponse(response.Response);
         }
 
-        public async Task<EntityMetadata<ViewDnsRdns, ViewDnsErrors>> GetRdns(string ip)
+        public async Task<EntityMetadata<ViewDnsRdns, IpProcessorErrors>> GetRdns(string ip)
         {
-
             var response = await _httpViewDnsService.GetRdns(ip);
             if (response?.Response == null)
             {
-                return GetEntityMetadataResponse<ViewDnsRdns>(null, ViewDnsErrors.InvalidResponse);
+                return GetEntityMetadataResponse<ViewDnsRdns>(null, IpProcessorErrors.InvalidResponse);
             }
 
             return GetEntityMetadataResponse(response.Response);
         }
 
-        private EntityMetadata<TEntity, ViewDnsErrors> GetEntityMetadataResponse<TEntity>(TEntity obj, ViewDnsErrors? error = null)
+        private EntityMetadata<TEntity, IpProcessorErrors> GetEntityMetadataResponse<TEntity>(TEntity obj, IpProcessorErrors? error = null)
         {
             if (obj != null)
             {
-                return new EntityMetadata<TEntity, ViewDnsErrors>(obj);
+                return new EntityMetadata<TEntity, IpProcessorErrors>(obj);
             }
 
             if (error == null)
             {
-                return new EntityMetadata<TEntity, ViewDnsErrors>(
-                    new List<ErrorInfo<ViewDnsErrors>>
+                return new EntityMetadata<TEntity, IpProcessorErrors>(
+                    new List<ErrorInfo<IpProcessorErrors>>
                     {
-                        new ErrorInfo<ViewDnsErrors>(ViewDnsErrors.UnhandledError)
+                        new ErrorInfo<IpProcessorErrors>(IpProcessorErrors.UnhandledError)
                     });
             }
 
-            return new EntityMetadata<TEntity, ViewDnsErrors>(
-                new List<ErrorInfo<ViewDnsErrors>>
+            return new EntityMetadata<TEntity, IpProcessorErrors>(
+                new List<ErrorInfo<IpProcessorErrors>>
                 {
-                    new ErrorInfo<ViewDnsErrors>(error.GetValueOrDefault())
+                    new ErrorInfo<IpProcessorErrors>(error.GetValueOrDefault())
                 });
         }
     }

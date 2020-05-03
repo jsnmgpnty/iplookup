@@ -1,6 +1,6 @@
 ﻿namespace IpProcessorApi.Models
 {
-    public enum ViewDnsErrors
+    public enum IpProcessorErrors
     {
         UnhandledError = 0,
         InvalidResponse = 1,
