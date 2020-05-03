@@ -41,6 +41,7 @@ namespace IpLookup.Common.Web.Controllers
             });
         }
 
+        [ApiExplorerSettings(IgnoreApi = true)]
         public void LogError(string message, Exception exception = null)
         {
             var controllerName = ControllerContext.RouteData.Values["controller"].ToString();

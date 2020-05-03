@@ -26,7 +26,7 @@ namespace IpProcessorApi.Controllers
         }
 
         [HttpGet]
-        [Route("geo")]
+        [Route("{ip}/geo")]
         public async Task<IActionResult> GetGeoIp(string ip)
         {
             try
@@ -41,7 +41,7 @@ namespace IpProcessorApi.Controllers
         }
 
         [HttpGet]
-        [Route("ping")]
+        [Route("{ip}/ping")]
         public async Task<IActionResult> GetPing(string ip)
         {
             try
@@ -56,7 +56,7 @@ namespace IpProcessorApi.Controllers
         }
 
         [HttpGet]
-        [Route("rdns")]
+        [Route("{ip}/rdns")]
         public async Task<IActionResult> GetRdns(string ip)
         {
             try
@@ -71,7 +71,7 @@ namespace IpProcessorApi.Controllers
         }
 
         [HttpGet]
-        [Route("rdap")]
+        [Route("{ip}/rdap")]
         public async Task<IActionResult> GetRdap(string ip)
         {
             try

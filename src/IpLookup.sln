@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpLookup.Models", "IpLookup
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpProcessorApi", "IpProcessorApi\IpProcessorApi.csproj", "{7A9B2C71-63D3-4B6C-97E8-4E15C6DFC236}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpLookupApi", "IpLookupApi\IpLookupApi.csproj", "{77296B80-7783-4F7F-8249-E6788850FAC7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,8 +41,13 @@ Global
 		{7A9B2C71-63D3-4B6C-97E8-4E15C6DFC236}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A9B2C71-63D3-4B6C-97E8-4E15C6DFC236}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A9B2C71-63D3-4B6C-97E8-4E15C6DFC236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77296B80-7783-4F7F-8249-E6788850FAC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77296B80-7783-4F7F-8249-E6788850FAC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77296B80-7783-4F7F-8249-E6788850FAC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77296B80-7783-4F7F-8249-E6788850FAC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7A9B2C71-63D3-4B6C-97E8-4E15C6DFC236} = {337E7D08-500C-4B8C-A2F1-200DA73398AC}
+		{77296B80-7783-4F7F-8249-E6788850FAC7} = {337E7D08-500C-4B8C-A2F1-200DA73398AC}
 	EndGlobalSection
 EndGlobal
