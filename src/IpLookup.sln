@@ -1,0 +1,46 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpLookup.Common", "IpLookup.Common\IpLookup.Common.csproj", "{F809A03D-801D-467D-B07B-8CAA4838FAB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{337E7D08-500C-4B8C-A2F1-200DA73398AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpLookup.Common.Web", "IpLookup.Common.Web\IpLookup.Common.Web.csproj", "{88860CA2-CF70-48EA-9CF8-3835E143FB4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpLookup.Services", "IpLookup.Services\IpLookup.Services.csproj", "{EAFDEC22-D973-482F-BD8F-C79A0EE1E6A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpLookup.Models", "IpLookup.Models\IpLookup.Models.csproj", "{5FA73E4B-0465-40F5-854C-2D8DEE938283}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpProcessorApi", "IpProcessorApi\IpProcessorApi.csproj", "{7A9B2C71-63D3-4B6C-97E8-4E15C6DFC236}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F809A03D-801D-467D-B07B-8CAA4838FAB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F809A03D-801D-467D-B07B-8CAA4838FAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F809A03D-801D-467D-B07B-8CAA4838FAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F809A03D-801D-467D-B07B-8CAA4838FAB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88860CA2-CF70-48EA-9CF8-3835E143FB4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88860CA2-CF70-48EA-9CF8-3835E143FB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88860CA2-CF70-48EA-9CF8-3835E143FB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88860CA2-CF70-48EA-9CF8-3835E143FB4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAFDEC22-D973-482F-BD8F-C79A0EE1E6A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAFDEC22-D973-482F-BD8F-C79A0EE1E6A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAFDEC22-D973-482F-BD8F-C79A0EE1E6A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAFDEC22-D973-482F-BD8F-C79A0EE1E6A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FA73E4B-0465-40F5-854C-2D8DEE938283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FA73E4B-0465-40F5-854C-2D8DEE938283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FA73E4B-0465-40F5-854C-2D8DEE938283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FA73E4B-0465-40F5-854C-2D8DEE938283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A9B2C71-63D3-4B6C-97E8-4E15C6DFC236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A9B2C71-63D3-4B6C-97E8-4E15C6DFC236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A9B2C71-63D3-4B6C-97E8-4E15C6DFC236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A9B2C71-63D3-4B6C-97E8-4E15C6DFC236}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7A9B2C71-63D3-4B6C-97E8-4E15C6DFC236} = {337E7D08-500C-4B8C-A2F1-200DA73398AC}
+	EndGlobalSection
+EndGlobal
