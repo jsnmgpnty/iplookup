@@ -22,28 +22,28 @@ namespace IpLookupApi.Http.Services
 
         public async Task<IpProcessorResponse> GetGeo(string ip)
         {
-            _logHelper.LogInfo($"HttpIpProcessorService - GetGeo - ip: {ip}");
+            _logHelper.LogInfo($"HttpIpProcessorService - GetGeo - ip: {ip} - host: {_httpClient.BaseAddress}");
             var res = await _httpClient.GetAsync<BaseResponse<GeoIpResponse>>($"ip/{ip}/geo");
             return HandleResponse(res, "GetGeo", ip);
         }
 
         public async Task<IpProcessorResponse> GetPing(string ip)
         {
-            _logHelper.LogInfo($"HttpIpProcessorService - GetPing - ip: {ip}");
+            _logHelper.LogInfo($"HttpIpProcessorService - GetPing - ip: {ip} - host: {_httpClient.BaseAddress}");
             var res = await _httpClient.GetAsync<BaseResponse<PingResponse>>($"ip/{ip}/ping");
             return HandleResponse(res, "GetPing", ip);
         }
 
         public async Task<IpProcessorResponse> GetRdap(string ip)
         {
-            _logHelper.LogInfo($"HttpIpProcessorService - GetRdap - ip: {ip}");
+            _logHelper.LogInfo($"HttpIpProcessorService - GetRdap - ip: {ip} - host: {_httpClient.BaseAddress}");
             var res = await _httpClient.GetAsync<BaseResponse<RdapResponse>>($"ip/{ip}/rdap");
             return HandleResponse(res, "GetRdap", ip);
         }
 
         public async Task<IpProcessorResponse> GetRdns(string ip)
         {
-            _logHelper.LogInfo($"HttpRdapService - GetRdns - ip: {ip}");
+            _logHelper.LogInfo($"HttpRdapService - GetRdns - ip: {ip} - host: {_httpClient.BaseAddress}");
             var res = await _httpClient.GetAsync<BaseResponse<RdnsResponse>>($"ip/{ip}/rdns");
             return HandleResponse(res, "GetRdns", ip);
         }

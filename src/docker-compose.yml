@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  ip-lookup-api:
+    image: jsnmgpnty/iplookupapi
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Release
+    ports:
+      - "5001:80"
+    build:
+      context: .
+      dockerfile: IpLookupApi/Dockerfile
+    networks:
+      - ip-lookup-network
+  ip-processor-api:
+    image: jsnmgpnty/ipprocessorapi
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Release
+    ports:
+      - "5002:80"
+    build:
+      context: .
+      dockerfile: IpProcessorApi/Dockerfile
+    networks:
+      - ip-lookup-network
+networks:
+  ip-lookup-network:
+    driver: bridge

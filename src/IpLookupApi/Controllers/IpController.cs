@@ -49,7 +49,6 @@ namespace IpLookupApi.Controllers
             {
                 return GetErrorResponse(ex, "Unhandled error occurred");
             }
-
         }
 
         // TODO: Ideally should be a model binder

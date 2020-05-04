@@ -49,8 +49,7 @@ namespace IpLookupApi.Services
 
             foreach (var t in tasks)
             {
-                var taskResult = await t.Task;
-
+                var taskResult = t.Task.Result;
                 if (taskResult == null)
                 {
                     errors.Add(new ErrorInfo<IpLookupErrors>(GetErrorType(t.ServiceName)));
